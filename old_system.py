@@ -31,6 +31,7 @@ def run_system_monolith():
             
             for i in range(len(n)): #sets range as length of list, add more to list and it should make new length
                 print(n[i] + " - " + r[i]) 
+
                 
         elif opt == "2":
             new_name = input("Name: ")
@@ -39,6 +40,7 @@ def run_system_monolith():
             
            
             n.append(new_name)
+            r.append(new_rank)
             print("Crew member added.")
             
         elif opt == "3":

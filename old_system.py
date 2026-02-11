@@ -40,26 +40,34 @@ def run_system_monolith():
             
            
             n.append(new_name)
-            r.append(new_rank)  #added this so both name and rank would be added to their respective lists
+            r.append(new_rank) #added this so both name and rank would be added to their respective lists
+            d.append(new_div) #for my 9th bug I realised I was missing this append
             print("Crew member added.")
             
         elif opt == "3":
             rem = input("Name to remove: ")
             if rem not in n:
-                print("Name is not in database.")
+                print("Provided name is not in database")
             else:
                 if n.count(rem) > 1:
-                    remr = input("Rank to remove: ")  #attempt to remove rank paired with name to specify removal if duplicate names occur
-                    idxr = r.index(remr)
-                    n.pop(idxr)
-                    r.pop(idxr)
-                    d.pop(idxr)
+                    remr = input("Rank of person to remove: ")
+                    for x in range(len(n)):     #all this allows for removing a person with the same name 
+                        if n[x] == rem:         #as someone but differentiates by rank
+                            Current_rank = r[x]
+                            if Current_rank == remr:
+                                n.pop(x)
+                                r.pop(x)
+                                d.pop(x)
+                                print("Removed.")
+                                break
+
                 else:
                     idxn = n.index(rem)
-                n.pop(idxn)
-                r.pop(idxn)
-                d.pop(idxn)
-                print("Removed.")
+                    n.pop(idxn)        # this focuses on removing an individual if their name isn't a duplicate
+                    r.pop(idxn)
+                    d.pop(idxn)       
+                    print("Removed.")
+                    
             
         elif opt == "4":
             print("Analyzing...")

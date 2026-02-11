@@ -12,7 +12,7 @@ def run_system_monolith():
     
     loading = 0
     while loading < 5:
-        loading = loading + 1
+        loading = loading + 1    #added this line of code so code would load
         print("Loading module " + str(loading))
         
     
@@ -26,7 +26,7 @@ def run_system_monolith():
         
         opt = input("Select option: ")
         
-        if opt == "1":  
+        if opt == "1":  #added second equals to make it compare
             print("Current Crew List:")
             
             for i in range(len(n)): #sets range as length of list, add more to list and it should make new length
@@ -40,17 +40,19 @@ def run_system_monolith():
             
            
             n.append(new_name)
-            r.append(new_rank)
+            r.append(new_rank)  #added this so both name and rank would be added to their respective lists
             print("Crew member added.")
             
         elif opt == "3":
             rem = input("Name to remove: ")
-           
-            idx = n.index(rem)
-            n.pop(idx)
-            r.pop(idx)
-            d.pop(idx)
-            print("Removed.")
+            if rem not in n:
+                print("Name is not in database.")
+            else:
+             idx = n.index(rem)
+             n.pop(idx)
+             r.pop(idx)
+             d.pop(idx)
+             print("Removed.")
             
         elif opt == "4":
             print("Analyzing...")
@@ -91,4 +93,4 @@ def run_system_monolith():
             
         print("End of cycle.")
 
-run_system_monolith()
+run_system_monolith() #fixed syntax error

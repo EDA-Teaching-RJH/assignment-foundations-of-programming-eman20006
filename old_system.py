@@ -66,8 +66,11 @@ def run_system_monolith():
             count = 0
             
             for rank in r:
-                if rank == "Captain" or "Commander": 
+                if rank == "Captain": 
                     count = count + 1
+                if rank ==  "Commander": #made this if statement to seperately count for both captain and commander as high ranking
+                    count = count + 1    #this is because it was shwoing every crew member as high ranking
+                   
             print("High ranking officers: " + str(count)) #added this in and forgot to commit it, commit 6
             
         elif opt == "5":

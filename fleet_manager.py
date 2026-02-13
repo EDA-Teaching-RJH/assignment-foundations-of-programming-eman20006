@@ -1,5 +1,5 @@
 
-n = ["Crusher", "Troi", "Picard", "LaForge", "Data"]
+n = ["Beverly Crusher", "Deanna Troi", "Jean-Luc Picard", "Geordi La Forge", "Data"]
 r = ["Commander", "Lieutenant", "Captain", "Lieutenant", "Lieutenant"]
 d = ["Sciences", "Sciences", "Command", "Operations", "Operations"]
 i = ["BC87", "DT87", "JP87", "GF87", "LD87"]
@@ -26,7 +26,7 @@ def fleet_manager():
             print("Here are the current options: ")
             print(n)  
             name = input("Input selection: ")
-            
+
         elif opt == "no":
             print("...")
         else:

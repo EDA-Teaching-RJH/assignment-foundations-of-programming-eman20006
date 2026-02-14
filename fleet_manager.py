@@ -16,15 +16,16 @@ def main():
             if name in (n):
                 print("Welcome: " + name + "you are currently logged in.")
                 print("What would you like to do: ")
-                1 = input("Add crew member: ")
-                2 = input("Remove crew member: ")
-                3 = input("Update rank: ")
-                4 = input("Display roster: ")
-                5 = input("Search crew member: ")
-                6 = input("Filter by division: ")
-                7 = input("Calculate payroll: ")
-                8 = input("Count officers: ")
-            
+                print("1.Add crew member: ")
+                print("2.Remove crew member: ")
+                print("3.Update rank: ")
+                print("4.Display roster: ")
+                print("5.Search crew member: ")
+                print("6.Filter by division: ")
+                print("7.Calculate payroll: ")
+                print("8.Count officers: ")
+                
+                
             else:
                 print("Invalid name.")
                 display_menu()
@@ -36,39 +37,65 @@ def main():
         else:
                 print("Invalid input")
                 display_menu()
-    display_menu()
+        add_member()
+        remove_member()
 
     def add_member():
-        new_name = input("Name: ")
-        new_rank = input("Rank: ")
-        new_div = input("Division: ")
-        new_id = input("Id: ")
-        n.append(new_name)
-        r.append(new_rank)
-        d.append(new_div)  
-        i.append(new_id)
-        if id in (i):
-             print("Invalid, Id already in use.")
-             display_menu()
-             
-        print("Crew member added.")
+        opt = input("Select option:")
+        if opt == "1":
+            new_name = input("Name: ")
+            new_rank = input("Rank: ")
+            new_div = input("Division: ")
+            new_id = input("Id: ")
+            n.append(new_name)
+            r.append(new_rank)
+            d.append(new_div)  
+            i.append(new_id)
+            if id in (i):
+                print("Invalid, ID already in use.")
+                display_menu()
+            else:    
+                print("Crew member added.")
          
     def remove_member():
-         
-    def update_rank():
-         
-    def display_roster():
-         
-    def search_crew_member():
-         
-    def filter_by_division():
-         
-    def calculate_payroll():
-         
-    def calculate_officers():
-         
+        opt = input("Select option:")
+        if opt == "2":
+            rem = input("ID to remove: ")
+            if rem not in i:
+                print("ID is not in database.")
+            else:
+             idx = i.index(rem)
+             n.pop(idx)
+             r.pop(idx)
+             d.pop(idx)
+             i.pop(idx)
+             print("Crew member removed.")
         
+            remove_member()  
 
+    def update_rank():
+        opt = input("Select option:")
+        if opt == "3":
+         
+         
+         update_rank()
+    def display_roster():
+        if opt == "4":
+         display_roster()
+    def search_crew_member():
+        if opt == "5":
+         search_crew_member()
+    def filter_by_division():
+        if opt == "6":
+         filter_by_division()
+    def calculate_payroll():
+        if opt == "7":
+         calculate_payroll()
+    def calculate_officers():
+        if opt == "8":
+            calculate_officers()    
+
+    display_menu()  
 main()
 #initial_database()
      

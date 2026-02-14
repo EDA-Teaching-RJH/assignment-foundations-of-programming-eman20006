@@ -76,7 +76,7 @@ def main():
     def update_rank():
         opt = input("Select option:")
         if opt == "3":
-         
+         updt = input("Input crew ID to update: ")
          
          update_rank()
     def display_roster():

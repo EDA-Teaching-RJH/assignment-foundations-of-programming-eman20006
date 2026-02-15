@@ -7,10 +7,10 @@ print("--Booting database menu--")
 print("--Syncing data--")
 
 def main():
-    opt = input("Would you like to view display menu? ")
+    opt = input("Would you like to view display menu? ").strip()
     if opt == "yes": 
         print("What is your full name? ")
-        name = input("Input: ")
+        name = input("Input: ").strip()
         if name in (n):
             print("Welcome: " + name + " you are currently logged in.")
         else:
@@ -53,7 +53,7 @@ def main():
                 calculate_payroll()
             if opt == "8":
                 calculate_officers()
-            if opt == "":
+            if opt == "9":
                 shutdown()
             else:
                 print("Invalid input")
@@ -67,20 +67,20 @@ def main():
         new_id = input("Id: ")
         if new_id in (i):
             print("Invalid, ID already in use.")
-            display_menu()
+            add_member()
         else:  
             n.append(new_name)
             r.append(new_rank)
             d.append(new_div)  
             i.append(new_id)
             print("Crew member added.")
-            print(d)
-            return
+            display_menu()
     def remove_member():
         
         rem = input("ID to remove: ")
         if rem not in i:
             print("ID is not in database.")
+            remove_member()
         else:
             idx = i.index(rem)
             n.pop(idx)
@@ -88,6 +88,7 @@ def main():
             d.pop(idx)
             i.pop(idx)
             print("Crew member removed.")
+            display_menu()
              
 
     def update_rank():
@@ -99,20 +100,28 @@ def main():
             r[i.index(updt)] = crnk
             print("Rank updated.")
             for x in range(len(n)): 
-                print(n[x] + " - " + r[x] + " - " + d[x] + " - " + i[x])                #insert rank at list number i want to change
+                print(n[x] + " - " + r[x] + " - " + d[x] + " - " + i[x])  
+                display_menu()                        #insert rank at list number i want to change
         else:
             print("Invalid ID.") 
             update_rank()                                #then remove said list number by pop but of + 1
 
             
     def display_roster():
-        if opt == "4":
-            for x in range(len(n)): 
+        for x in range(len(n)): 
                     print(n[x] + " - " + r[x] + " - " + d[x] + " - " + i[x]) 
-            display_roster()
+        display_menu()
+        
     def search_crew_member():
-        if opt == "5":
-         search_crew_member()
+        
+        term = input("Please enter a search term: ").lower().upper()
+        searchlist = []
+        for x in n:
+            if term in x:
+                searchlist.append(x)
+        print(searchlist)
+        display_menu()
+        
     def filter_by_division():
         if opt == "6":
          filter_by_division()
@@ -123,10 +132,8 @@ def main():
         if opt == "8":
             calculate_officers()
     def shutdown():
-        if opt == "9":
-            print("Shutting down...")
-            exit()
-            shutdown()
+        print("Shutting down...")
+        exit()
             
                 
 

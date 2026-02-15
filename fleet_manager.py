@@ -15,7 +15,7 @@ def main():
             print("Welcome: " + name + " you are currently logged in.")
         else:
             print("Invalid name.")
-            
+            main()
     elif opt == "no":
                 print("Shutting down...")
                 return
@@ -101,12 +101,15 @@ def main():
             for x in range(len(n)): 
                 print(n[x] + " - " + r[x] + " - " + d[x] + " - " + i[x])                #insert rank at list number i want to change
         else:
-            print("Invalid ID.")                                 #then remove said list number by pop but of + 1
+            print("Invalid ID.") 
+            update_rank()                                #then remove said list number by pop but of + 1
 
             
     def display_roster():
         if opt == "4":
-         display_roster()
+            for x in range(len(n)): 
+                    print(n[x] + " - " + r[x] + " - " + d[x] + " - " + i[x]) 
+            display_roster()
     def search_crew_member():
         if opt == "5":
          search_crew_member()

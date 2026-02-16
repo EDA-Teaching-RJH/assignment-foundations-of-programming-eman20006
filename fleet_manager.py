@@ -23,7 +23,7 @@ def main():
             main()
     elif opt == "no":
                 print("Shutting down...")
-                return
+                exit()
     else:
         print("Invalid input")
         main()
@@ -105,17 +105,16 @@ def main():
     def update_rank():
         
         updt = input("Input crew ID to update: ")
-        if updt in i:
-            i.index(updt) 
-            crnk = input("What is the new rank? ")
-            r[i.index(updt)] = crnk
-            print("Rank updated.")
-            for x in range(len(n)): 
-                print(n[x] + " - " + r[x] + " - " + d[x] + " - " + i[x])  
-                display_menu()                        #insert rank at list number i want to change
-        else:
+        if updt not in i:
             print("Invalid ID.") 
-            update_rank()                                #then remove said list number by pop but of + 1
+            update_rank() 
+                   
+        else:
+            crnk = i.index(updt) 
+            r[crnk] = input("What is the new rank? ")
+            print("Rank updated.")
+          
+            display_menu()                                #then remove said list number by pop but of + 1
 
             
     def display_roster():

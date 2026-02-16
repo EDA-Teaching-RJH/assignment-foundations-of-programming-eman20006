@@ -126,7 +126,7 @@ def main():
         
     def search_crew_member():
         
-        print("Please enter a search division: ")
+        print("Please enter a search tab: ")
         print("-Name-")
         print("-Rank-")
         print("-Division-")
@@ -174,18 +174,15 @@ def main():
 
     def filter_by_division():
         filter_div = input("Enter required division: ")
-        if filter_div not in valid_division:
-            print("Invalid division.")
-            filter_by_division()
+        if filter_div == "Command" or filter_div == "Operations" or filter_div == "Sciences":
+            for x in range(len(d)):
+                if filter_div == d[x]:
+                    print(n[x] + " - " + r[x] + " - " + d[x] + " - " + i[x]) 
         else:
-            print("Members in selected division:")
-            for x in range(len(n)):
-                if d == filter_div:
-                    print(n[x] + " - " + d[x])
+            print("Unable to find division.")
+            filter_by_division()
+        display_menu()
 
-            
-
-        filter_by_division()
     def calculate_payroll():
         if opt == "7":
          calculate_payroll()

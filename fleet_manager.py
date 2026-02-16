@@ -1,6 +1,5 @@
-#def initial_database():
-valid_division = ["Command", "Operations", "Security", "Sciences", "Medical"]
-valid_rank = ["Captain", "Commander", "Lt.COmmander", "Lieutenant", "Cadet", "Esign", "Lt.JrGrade"]
+
+valid_rank = ["Captain", "Commander", "Lt.Commander", "Lieutenant", "Cadet", "Esign", "Lt.JrGrade"]
 def init_database():
     n = ["Beverly Crusher", "Deanna Troi", "Jean-Luc Picard", "Geordi La Forge", "Data"]
     r = ["Commander", "Lieutenant", "Captain", "Lieutenant", "Lieutenant"]
@@ -184,11 +183,30 @@ def main():
         display_menu()
 
     def calculate_payroll():
-        if opt == "7":
-         calculate_payroll()
+        payroll = 0
+        numb = r.count("Captain")
+        payroll = payroll + numb * 1000
+        numb = r.count("Commander")
+        payroll = payroll + numb * 800
+        numb = r.count("Lt.Commander")
+        payroll = payroll + numb * 600
+        numb = r.count("Lieutenant")
+        payroll = payroll + numb * 400
+        numb = r.count("Cadet")
+        payroll = payroll + numb * 300
+        numb = r.count("Esign")
+        payroll = payroll + numb * 200
+        numb = r.count("Lt.JrGrade")
+        payroll = payroll + numb * 100
+        print("Cost of crew total: \n" + str(payroll) + "Credits")
+        display_menu()
     def calculate_officers():
-        if opt == "8":
-            calculate_officers()
+            count = 0
+            for rank in r:
+                if rank == "Captain" or rank == "Commander": 
+                    count = count + 1
+            print("High ranking officers: " + str(count))       
+            display_menu()
     def shutdown():
         print("Shutting down...")
         exit()

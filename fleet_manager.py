@@ -1,12 +1,18 @@
 #def initial_database():
-n = ["Beverly Crusher", "Deanna Troi", "Jean-Luc Picard", "Geordi La Forge", "Data"]
-r = ["Commander", "Lieutenant", "Captain", "Lieutenant", "Lieutenant"]
-d = ["Sciences", "Sciences", "Command", "Operations", "Operations"]
-i = ["BC87", "DT87", "JP87", "GF87", "LD87"]
+valid_division = ["Command", "Operations", "Security", "Sciences", "Medical"]
+valid_rank = ["Captain", "Commander", "Lt.COmmander", "Lieutenant", "Cadet", "Esign", "Lt.JrGrade"]
+def init_database():
+    n = ["Beverly Crusher", "Deanna Troi", "Jean-Luc Picard", "Geordi La Forge", "Data"]
+    r = ["Commander", "Lieutenant", "Captain", "Lieutenant", "Lieutenant"]
+    d = ["Sciences", "Sciences", "Command", "Operations", "Operations"]
+    i = ["BC87", "DT87", "JP87", "GF87", "LD87"]
+    return n, r, d, i
+init_database()
 print("--Booting database menu--")
 print("--Syncing data--")
 
 def main():
+    n, r, d, i = init_database()
     opt = input("Would you like to view display menu? ").strip()
     if opt == "yes": 
         print("What is your full name? ")
@@ -69,7 +75,7 @@ def main():
             print("Invalid, ID already in use.")
             add_member()
         else: 
-            if new_rank in r: 
+            if new_rank in valid_rank: 
                 print("Rank has been validated.")
                 n.append(new_name)
                 r.append(new_rank)
@@ -120,24 +126,67 @@ def main():
         
     def search_crew_member():
         
-        term = input("Please enter a search term: ")
-        found = False
-
-        for x in range(len(n)):
-            if (term in n[x] or term in r[x] or term in d[x] or term in i[x]):
-                print(n[x] + " - " + r[x] + " - " + d[x] + " - " + i[x])  
-                found = True
-    
-        if not found:
-            print("Invalid for name search.")
+        print("Please enter a search division: ")
+        print("-Name-")
+        print("-Rank-")
+        print("-Division-")
+        print("-Id-")
+        term = input("Select: ")
+        if term == "Name":
+            search_name = input("Name to enter: ")
+            if search_name in n:
+                idx = n.index(search_name)
+                print(n[idx] + " - " + r[idx] + " - " + d[idx] + " - " + i[idx])  
             display_menu()
         
+            if term not in n:
+                print("Invalid for name search.")
+                display_menu()
+        if term == "Rank":
+            search_rank = input("Rank to enter: ")
+            if search_rank in r:
+                #idx = r.index(search_rank)
+                for search_rank in range(len(n)):
+                    print(n[search_rank] + " - " + r[search_rank] + " - " + d[search_rank] + " - " + i[search_rank])  
+            display_menu()
+            if term not in r:
+                print("Invalid for name search.")
+                display_menu()
+        if term == "Division":
+            
+            if term in d:
+                idx = d.index(term)
+                print(n[idx] + " - " + r[idx] + " - " + d[idx] + " - " + i[idx])  
+            display_menu()
+            if term not in r:
+                print("Invalid for name search.")
+                display_menu()
+        if term == "Id":
+            
+            if term in i:
+                idx = i.index(term)
+                print(n[idx] + " - " + r[idx] + " - " + d[idx] + " - " + i[idx])  
+            display_menu()
+            if term not in i:
+                print("Invalid for name search.")
+                display_menu()
+
         display_menu()
 
     def filter_by_division():
-        
-         
-         filter_by_division()
+        filter_div = input("Enter required division: ")
+        if filter_div not in valid_division:
+            print("Invalid division.")
+            filter_by_division()
+        else:
+            print("Members in selected division:")
+            for x in range(len(n)):
+                if d == filter_div:
+                    print(n[x] + " - " + d[x])
+
+            
+
+        filter_by_division()
     def calculate_payroll():
         if opt == "7":
          calculate_payroll()

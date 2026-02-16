@@ -121,21 +121,14 @@ def main():
     def search_crew_member():
         
         term = input("Please enter a search term: ")
-        searchlistn = []
-        searchlistr = []
-        searchlistd = []
-        searchlisti = []
-        for x in n, r, d, i:
-            if term in x:
-                searchlistn.append(x)
-                searchlistr.append(x)
-                searchlistd.append(x)
-                searchlisti.append(x)
-        print(searchlistn)
-        print(searchlistn)
-        print(searchlistn)
-        print(searchlistn)
-        if x not in n:
+        found = False
+
+        for x in range(len(n)):
+            if (term in n[x] or term in r[x] or term in d[x] or term in i[x]):
+                print(n[x] + " - " + r[x] + " - " + d[x] + " - " + i[x])  
+                found = True
+    
+        if not found:
             print("Invalid for name search.")
             display_menu()
         

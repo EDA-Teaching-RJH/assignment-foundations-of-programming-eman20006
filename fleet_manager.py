@@ -68,13 +68,19 @@ def main():
         if new_id in (i):
             print("Invalid, ID already in use.")
             add_member()
-        else:  
-            n.append(new_name)
-            r.append(new_rank)
-            d.append(new_div)  
-            i.append(new_id)
-            print("Crew member added.")
-            display_menu()
+        else: 
+            if new_rank in r: 
+                print("Rank has been validated.")
+                n.append(new_name)
+                r.append(new_rank)
+                d.append(new_div)  
+                i.append(new_id)
+                print("Crew member added.")
+                display_menu()
+            else:
+                print("Rank is invalid.")
+                print("Please try again.")
+                add_member()
     def remove_member():
         
         rem = input("ID to remove: ")
@@ -115,19 +121,29 @@ def main():
     def search_crew_member():
         
         term = input("Please enter a search term: ")
-        searchlist = []
-        for x in n:
+        searchlistn = []
+        searchlistr = []
+        searchlistd = []
+        searchlisti = []
+        for x in n, r, d, i:
             if term in x:
-                searchlist.append(x)
-        print(searchlist)
+                searchlistn.append(x)
+                searchlistr.append(x)
+                searchlistd.append(x)
+                searchlisti.append(x)
+        print(searchlistn)
+        print(searchlistn)
+        print(searchlistn)
+        print(searchlistn)
         if x not in n:
-            print("Invalid input.")
+            print("Invalid for name search.")
             display_menu()
         
         display_menu()
 
     def filter_by_division():
-        if opt == "6":
+        
+         
          filter_by_division()
     def calculate_payroll():
         if opt == "7":

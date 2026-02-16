@@ -134,44 +134,43 @@ def main():
         term = input("Select: ")
         if term == "Name":
             search_name = input("Name to enter: ")
-            if search_name in n:
-                idx = n.index(search_name)
-                print(n[idx] + " - " + r[idx] + " - " + d[idx] + " - " + i[idx])  
-            display_menu()
-        
-            if term not in n:
-                print("Invalid for name search.")
-                display_menu()
+            if search_name not in n:
+                print("Name not found.")
+                search_crew_member()
+            for x in range(len(n)):
+                if search_name == n[x]:
+                    print(n[x] + " - " + r[x] + " - " + d[x] + " - " + i[x]) 
+                    display_menu() 
         if term == "Rank":
             search_rank = input("Rank to enter: ")
-            if search_rank in r:
-                #idx = r.index(search_rank)
-                for search_rank in range(len(n)):
-                    print(n[search_rank] + " - " + r[search_rank] + " - " + d[search_rank] + " - " + i[search_rank])  
-            display_menu()
-            if term not in r:
-                print("Invalid for name search.")
-                display_menu()
+            if search_rank not in r:
+                print("Rank not found.")
+                search_crew_member()
+            for x in range(len(r)):
+                if search_rank == r[x]:
+                    print(n[x] + " - " + r[x] + " - " + d[x] + " - " + i[x])
+                    display_menu()
         if term == "Division":
-            
-            if term in d:
-                idx = d.index(term)
-                print(n[idx] + " - " + r[idx] + " - " + d[idx] + " - " + i[idx])  
-            display_menu()
-            if term not in r:
-                print("Invalid for name search.")
-                display_menu()
+            search_div = input("Division to enter: ")
+            if search_div not in d:
+                print("Division not found.")
+                search_crew_member()
+            for x in range(len(d)):
+                if search_div == d[x]:
+                    print(n[x] + " - " + r[x] + " - " + d[x] + " - " + i[x])  
+                    display_menu()
         if term == "Id":
-            
-            if term in i:
-                idx = i.index(term)
-                print(n[idx] + " - " + r[idx] + " - " + d[idx] + " - " + i[idx])  
-            display_menu()
-            if term not in i:
-                print("Invalid for name search.")
-                display_menu()
-
-        display_menu()
+            search_id = input("Id to enter: ")
+            if search_id not in i:
+                print("Id not found.")
+                search_crew_member()
+            for x in range(len(i)):
+                if search_id == i[x]:
+                    print(n[x] + " - " + r[x] + " - " + d[x] + " - " + i[x]) 
+                    display_menu()
+        else:
+            search_crew_member()
+    
 
     def filter_by_division():
         filter_div = input("Enter required division: ")

@@ -200,7 +200,7 @@ def main():
         payroll = payroll + numb * 100
         print("Cost of crew total: \n" + str(payroll) + "Credits")
         display_menu()
-    def calculate_officers(): 
+    def calculate_officers(): #last commit here 
             count = 0
             for rank in r:
                 if rank == "Captain" or rank == "Commander": 

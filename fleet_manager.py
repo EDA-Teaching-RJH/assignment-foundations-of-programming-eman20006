@@ -114,14 +114,18 @@ def main():
         
     def search_crew_member():
         
-        term = input("Please enter a search term: ").lower().upper()
+        term = input("Please enter a search term: ")
         searchlist = []
         for x in n:
             if term in x:
                 searchlist.append(x)
         print(searchlist)
-        display_menu()
+        if x not in n:
+            print("Invalid input.")
+            display_menu()
         
+        display_menu()
+
     def filter_by_division():
         if opt == "6":
          filter_by_division()
